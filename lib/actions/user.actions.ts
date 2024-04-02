@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { connectToDatabase } from "../database/mongoose";
 import { handleError } from "../utils";
+import User from "../database/models/user.model";
 
 //CREATE
 
@@ -58,7 +59,7 @@ export async function deleteUser(clerkId: string) {
     }
 
     //Delete User
-    const deleteUser = await User.FindByIdAndDelete(userToDelete._id);
+    const deleteUser = await User.findByIdAndDelete(userToDelete._id);
     revalidatePath("/");
   } catch (error) {
     handleError(error);

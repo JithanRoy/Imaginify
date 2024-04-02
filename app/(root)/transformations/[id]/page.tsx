@@ -1,6 +1,5 @@
+const TransformationsPage = () => {
+  return <div>TransformationsPage</div>;
+};
 
-export const TransformationsPage = () => {
-  return (
-    <div>TransformationsPage</div>
-  )
-}
+export default TransformationsPage;
