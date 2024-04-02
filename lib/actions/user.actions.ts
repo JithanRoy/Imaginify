@@ -6,7 +6,6 @@ import { handleError } from "../utils";
 import User from "../database/models/user.model";
 
 //CREATE
-
 export async function createUser(user: CreateUserParams) {
   try {
     await connectToDatabase();
