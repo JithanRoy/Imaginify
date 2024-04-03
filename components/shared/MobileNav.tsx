@@ -27,7 +27,7 @@ export default function MobileNav() {
         <Image src={LOGO} alt="logo" width={180} height={28} />
         <nav className="flex gap-2">
           <SignedIn>
-            <UserButton afterSignOutUrl="/" />
+            <UserButton afterSignOutUrl="/sign-in" />
             <Sheet>
               <SheetTrigger>
                 <Image

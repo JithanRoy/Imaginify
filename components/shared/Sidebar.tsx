@@ -13,7 +13,9 @@ export default function Sidebar() {
     <aside className="sidebar">
       <div className="flex size-full flex-col gap-4">
         <Link href="/" className="sidebar-logo">
-          <Image src={LogoSVG} alt="logo" width={180} height={28} />
+          <>
+            <Image src={LogoSVG} alt="logo" width={180} height={28} />
+          </>
         </Link>
 
         <nav className="sidebar-nav">
@@ -31,13 +33,15 @@ export default function Sidebar() {
                     }`}
                   >
                     <Link className="sidebar-link" href={link.route}>
-                      <Image
-                        src={link.icon}
-                        alt="logo"
-                        width={24}
-                        height={24}
-                        className={`${isActive && "brightness-200"}`}
-                      />
+                      <>
+                        <Image
+                          src={link.icon}
+                          alt="logo"
+                          width={24}
+                          height={24}
+                          className={`${isActive && "brightness-200"}`}
+                        />
+                      </>
                       {link.label}
                     </Link>
                   </li>
@@ -73,7 +77,7 @@ export default function Sidebar() {
               })}
 
               <li className="flex-center cursor-pointer gap-2 p-4">
-                <UserButton afterSignOutUrl="/" showName />
+                <UserButton afterSignOutUrl="/sign-in" showName />
               </li>
             </ul>
           </SignedIn>

@@ -37,6 +37,7 @@ export async function POST(req: Request) {
   const wh = new Webhook(WEBHOOK_SECRET);
 
   let evt: WebhookEvent;
+  console.log(evt);
 
   // Verify the payload with the headers
   try {
