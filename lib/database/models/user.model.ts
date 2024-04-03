@@ -13,21 +13,29 @@ const UserSchema = new Schema({
   },
   username: {
     type: String,
+    required: true,
     unique: true,
   },
-
+  photo: {
+    type: String,
+    required: true,
+  },
   firstName: {
     type: String,
   },
   lastName: {
     type: String,
   },
-  photo: {
-    type: String,
-    required: true,
+  planId: {
+    type: Number,
+    default: 1,
+  },
+  creditBalance: {
+    type: Number,
+    default: 10,
   },
 });
 
-const User = models.User || model("User", UserSchema);
+const User = models?.User || model("User", UserSchema);
 
 export default User;
