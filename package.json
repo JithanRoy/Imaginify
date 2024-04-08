@@ -2,6 +2,11 @@
   "name": "imaginify",
   "version": "0.1.0",
   "private": true,
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,13 +18,16 @@
     "@hookform/resolvers": "^3.3.4",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-toast": "^1.1.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "lucide-react": "^0.363.0",
     "mongodb": "^6.3.0",
     "mongoose": "^8.1.1",
     "next": "14.1.0",
+    "next-cloudinary": "^6.4.0",
     "qs": "^6.11.2",
     "radix-ui": "^1.0.1",
     "react": "^18",
