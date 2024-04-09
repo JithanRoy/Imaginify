@@ -61,7 +61,7 @@ export default function MediaUploader({
       onSuccess={onUploadSuccessHandler}
       onError={onUploadErrorHandler}
     >
-      {({ open }) => (
+      {({ cloudinary, widget, open }) => (
         <div className="flex flex-col gap-4">
           <h3 className="h3-bold text-dark-600">Orginal</h3>
 
