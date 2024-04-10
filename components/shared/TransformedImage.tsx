@@ -1,7 +1,10 @@
-import { dataUrl, debounce, getImageSize } from "@/lib/utils";
-import { CldImage } from "next-cloudinary";
+"use client";
+import { dataUrl, debounce, download, getImageSize } from "@/lib/utils";
+import { CldImage, getCldImageUrl } from "next-cloudinary";
 import Image from "next/image";
 import React from "react";
+import downloadSVG from "/public/assets/icons/download.svg";
+import spinnerSVG from "/public/assets/icons/spinner.svg";
 
 export default function TransformedImage({
   image,
@@ -12,7 +15,20 @@ export default function TransformedImage({
   setIsTransforming,
   hasDownload = false,
 }: TransformedImageProps) {
-  const downloadHandler = () => {};
+  const downloadHandler = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    download(
+      getCldImageUrl({
+        width: image?.width,
+        height: image?.height,
+        src: image?.publicId,
+        ...transformationConfig,
+      }),
+      title
+    );
+  };
 
   return (
     <div className="flex flex-col gap-4">
@@ -22,7 +38,7 @@ export default function TransformedImage({
         {hasDownload && (
           <button className="download-btn" onClick={downloadHandler}>
             <Image
-              src="/public/assets/icons/download.svg"
+              src={downloadSVG}
               alt="download"
               width={24}
               height={24}
@@ -56,7 +72,7 @@ export default function TransformedImage({
           {isTransforming && (
             <div className="transforming-loader">
               <Image
-                src="/public/assets/icons/spinner.svg"
+                src={spinnerSVG}
                 width={50}
                 height={50}
                 alt="Transforming"
