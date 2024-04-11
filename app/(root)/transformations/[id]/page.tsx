@@ -8,10 +8,11 @@ import TransformedImage from "@/components/shared/TransformedImage";
 import { Button } from "@/components/ui/button";
 import { getImageById } from "@/lib/actions/image.actions";
 import { getImageSize } from "@/lib/utils";
+import { DeleteConfirmation } from "@/components/shared/DeleteConfirmation";
 // import { DeleteConfirmation } from "@/components/shared/DeleteConfirmation";
 
 const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
-  // const { userId } = auth();
+  const { userId } = auth();
 
   const image = await getImageById(id);
 
@@ -82,6 +83,18 @@ const ImageDetails = async ({ params: { id } }: SearchParamProps) => {
             hasDownload={true}
           />
         </div>
+
+        {userId === image.author.clerkId && (
+          <div className="mt-4 space-y-4">
+            <Button asChild type="button" className="submit-button capitalize">
+              <Link href={`/transformations/${image._id}/update`}>
+                Update Image
+              </Link>
+            </Button>
+
+            <DeleteConfirmation imageId={image._id} />
+          </div>
+        )}
       </section>
     </>
   );

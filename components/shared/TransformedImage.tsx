@@ -64,19 +64,15 @@ export default function TransformedImage({
             onError={() => {
               debounce(() => {
                 setIsTransforming && setIsTransforming(false);
-              }, 8000);
+              }, 8000)();
             }}
             {...transformationConfig}
           />
 
           {isTransforming && (
             <div className="transforming-loader">
-              <Image
-                src={spinnerSVG}
-                width={50}
-                height={50}
-                alt="Transforming"
-              />
+              <Image src={spinnerSVG} width={50} height={50} alt="spinner" />
+              <p className="text-white/80">Please wait</p>
             </div>
           )}
         </div>

@@ -67,7 +67,7 @@ export default function TransformationForm({
   const router = useRouter();
 
   const initialValues =
-    data && action === "update"
+    data && action === "Update"
       ? {
           title: data?.title,
           aspectRatio: data?.aspectRatio,
@@ -178,8 +178,9 @@ export default function TransformationForm({
           [fieldName === "prompt" ? "prompt" : "to"]: value,
         },
       }));
-      return onChangeField(value);
-    }, 1000);
+    }, 1000)();
+
+    return onChangeField(value);
   };
 
   // TODO: Update credit fee to something else
@@ -210,9 +211,7 @@ export default function TransformationForm({
           name="title"
           formLabel="Image Title"
           className="w-full"
-          render={({ field }) => (
-            <Input {...field} value={image?.title} className="input-field" />
-          )}
+          render={({ field }) => <Input {...field} className="input-field" />}
         />
 
         {type === "fill" && (
@@ -228,10 +227,10 @@ export default function TransformationForm({
                 }
                 value={field.value}
               >
-                <SelectTrigger className="w-[180px]">
+                <SelectTrigger className="w-[200px] font-bold">
                   <SelectValue
                     placeholder="Select size"
-                    className="text-bold"
+                    defaultValue={field.aspectRatio}
                   />
                 </SelectTrigger>
                 <SelectContent>
@@ -285,7 +284,7 @@ export default function TransformationForm({
                       onInputChangeHandler(
                         "color",
                         e.target.value,
-                        recolor,
+                        type,
                         field.onChange
                       )
                     }
