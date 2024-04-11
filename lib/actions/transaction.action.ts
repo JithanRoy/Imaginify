@@ -9,8 +9,8 @@ import { redirect } from "next/navigation";
 
 export async function checkoutCredits(transaction: CheckoutTransactionParams) {
   //   const stripe = new stripVTControlCharacters(process.env.STRIPE_SECRET_KEY!);
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: "2023-10-16", // You can specify the API version you want to use
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+    apiVersion: "2024-04-10", // You can specify the API version you want to use
   });
 
   const amount = Number(transaction.amount) * 100;

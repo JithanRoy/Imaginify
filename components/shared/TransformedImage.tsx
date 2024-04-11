@@ -3,6 +3,7 @@ import { dataUrl, debounce, download, getImageSize } from "@/lib/utils";
 import { CldImage, getCldImageUrl } from "next-cloudinary";
 import Image from "next/image";
 import React from "react";
+import { PlaceholderValue } from "next/dist/shared/lib/get-img-props";
 import downloadSVG from "/public/assets/icons/download.svg";
 import spinnerSVG from "/public/assets/icons/spinner.svg";
 

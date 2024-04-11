@@ -42,7 +42,7 @@ export default function MobileNav() {
         <nav className="flex gap-2">
           <SignedIn>
             <UserButton afterSignOutUrl="/" />
-            <Sheet isOpen={isOpen} onClose={() => setIsOpen(false)}>
+            <Sheet open={isOpen} onOpenChange={() => setIsOpen(false)}>
               <SheetTrigger asChild onClick={() => setIsOpen(!isOpen)}>
                 <Image
                   src={MenuButton}

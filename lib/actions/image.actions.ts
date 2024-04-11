@@ -30,7 +30,9 @@ export async function addImage({ image, userId, path }: AddImageParams) {
       ...image,
       author: author._id,
     });
+
     revalidatePath(path);
+
     return JSON.parse(JSON.stringify(newImage));
   } catch (error) {
     handleError(error);
@@ -66,8 +68,6 @@ export async function deleteImage(imageId: string) {
   try {
     await connectToDatabase();
     await Image.findByIdAndDelete(imageId);
-    revalidatePath(path);
-    return JSON.parse(JSON.stringify(image));
   } catch (error) {
     handleError(error);
   } finally {
